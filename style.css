@@ -46,7 +46,6 @@ sup {
 
 .container {
 	width: 1000px;
-	min-height: 1200px;
 	max-height: 999999px; /* prevents font boosting */
 	margin: 0 auto; /* top and bottom, right and left */
 	/*	border: 1px solid #000; */
@@ -101,10 +100,10 @@ table#video {
 	margin-bottom: 50px;
 }
 
-.caption {
+/* .caption {
 	font-style: italic;
-	font-size: 100%;
-}
+	font-size: 10%;
+} */
 
 .label {
 	line-height: 1.2;
@@ -337,6 +336,10 @@ code {
   display: none;
 }
 
+.caption-vid {
+  display: inline-block;
+}
+
 .video-warpper-wide .overlay-text {
   position: absolute;
   top: 20%;
@@ -379,3 +382,89 @@ code {
 .video-warpper-wide video::-webkit-media-controls-play-button {
   display: none !important;
 }
+
+
+.carousel-control-prev {
+  margin-left: -50px;
+  height: 300px;
+  }
+  .carousel-control-next {
+  margin-right: -50px;
+  height: 300px;
+  }
+  .carousel-item {
+  background-color: #fff;
+  /* height: 234px; */
+  overflow: hidden;
+  /* width: 100%; */
+  text-align: center;
+  }
+  .carousel-item img {
+  /* width: 100%; */
+  }
+  .carousel-inner .item img {
+  margin:auto;
+  background-color: #fff;
+  }
+  .carousel-control-next,.carousel-control-prev{
+  opacity:1
+  }
+  .carousel-control-next:focus,.carousel-control-next:hover,.carousel-control-prev:focus,.carousel-control-prev:hover{
+  opacity:1
+  }
+  .slider-navigation-next,.slider-navigation-previous{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:absolute;
+  width:42px;
+  height:42px;
+  background:gray center center no-repeat;
+  background-size:20px 20px;
+  border:1px solid #fff;
+  border-radius:25091983px;
+  box-shadow:0 2px 5px #3232321a;
+  top:50%;
+  margin-top:-20px;
+  left:0;
+  cursor:pointer;
+  transition:transform .3s,opacity .3s,-webkit-transform .3s
+  }
+  .slider-navigation-next svg,.slider-navigation-previous svg{
+  width:25%;
+  background:gray
+  }
+  .slider-navigation-next{
+  left:auto;
+  right:0;
+  background:gray center center no-repeat;
+  background-size:20px 20px
+  }
+ 
+  .teaser-carousel {
+     width: 670px;
+     margin: auto;
+     height: 400px;
+  }
+
+
+  .container {
+    position: relative;
+  }
+  
+  .caption-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 1000px;
+  }
+  
+  .caption {
+    flex-basis: 20%;
+    text-align: center;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    filter: invert(100%); /* Set the arrows color to black */
+  }
