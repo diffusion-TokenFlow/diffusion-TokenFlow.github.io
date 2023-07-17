@@ -1,537 +1,562 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- saved from url=(0045)http://6.869.csail.mit.edu/fa19/schedule.html -->
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-<!--	<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLX2Z5QLG8"></script>-->
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'G-WLX2Z5QLG8');
-	</script>
-
-
-
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function () {
-
-    if (localStorage.getItem("my_app_name_here-quote-scroll") != null) {
-        $(window).scrollTop(localStorage.getItem("my_app_name_here-quote-scroll"));
-    }
-
-    $(window).on("scroll", function() {
-        localStorage.setItem("my_app_name_here-quote-scroll", $(window).scrollTop());
-    });
-
-  });
-</script>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-   <title>TokenFlow: Consistent Diffusion Features for Consistent Video Editing</title>
-  <link href="style.css" rel="stylesheet" type="text/css">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
 
 
-  <meta name="description" content="Project page for &#39;TokenFlow: Consistent Diffusion Features for Consistent Video Editing.&#39;">
-  <link rel="icon" href="./pics/wis_logo.jpg">
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>TokenFlow: Consistent Diffusion Features for Consistent Video Editing</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
 </head>
-
 <body>
-<!--   <p class="title">MultiDiffusion: Fusing Diffusion Paths for Controlled Image Generation</p>
-  <table width="999" border="0" align="center" class="menu" style="margin-bottom: 8px;">
-    <tbody>
-      <tr>
-        <td style="font-size: 17pt;" align="center"></td>
-      </tr>
-    </tbody>
-  </table> -->
-	  <table width="999" border="0" align="center" class="menu" style="margin-bottom: 8px;">
-    <tbody>
-      <tr>  <p class="title">TokenFlow: Consistent Diffusion Features for Consistent Video Editing</p>
-        <td style="font-size: 17pt;" align="center"></td>
-      </tr>
-          <tr>
-        <!-- <td style="font-size: 17pt;" align="center">ICML 2023</td> -->
-      </tr>
-    </tbody>
-  </table>
-<p class="author">
-    <span class="author"><a target="_blank" href="">Michal Geyer</a>&nbsp;<sup>*1</sup></span>
-    <span class="author"><a target="_blank" href="https://omerbt.github.io">Omer Bar-Tal&nbsp;</a><sup>*1</sup></span>
-	<span class="author"><a target="_blank" href="">Shai Bagon</a>&nbsp;<sup>1</sup></span>
-    <span class="author"><a target="_blank" href="https://www.weizmann.ac.il/math/dekel/">Tali Dekel</a>&nbsp;<sup>1&nbsp;</sup></span>
-  </p>
-  <table border="0" align="center" class="affiliations" width="1200px">
-      <tbody align="center">
-    <tr>
-        <td></td>
-<!--        <td style="text-align: right; width: 17%"><img src="./pics/wis_logo.jpg" height="48" alt=""></td>-->
-        <td style="text-align: center; ">&nbsp;<sup>&nbsp;</sup>&nbsp;<sup>1&nbsp;&nbsp;</sup>Weizmann Institute of Science &nbsp;</td>
-<!--         <td style="text-align: center; ">&nbsp;<sup>&nbsp;</sup>&nbspWeizmann Institute of Science &nbsp;&nbsp;*equal contribution</td> -->
-        <!--    </tr>-->
-<!--    <tr>-->
-<!--        <td style="text-align: right; width: 17%"></td>-->
-<!--        <td style="text-align: left; width:20%; ">&nbsp;<sup>&nbsp;</sup>&nbsp;<sup>2&nbsp;&nbsp;</sup>Meta AI</td>-->
-    </tr>
-    </tbody></table>
 
-    <table width="999" border="0" align="center" class="menu" style="margin-bottom: 8px;">
-      <tbody>
-        <tr>
-<!--          <td align="center">| <a href="paper_compressed.pdf">Paper</a> | <a href="sm/index.html">Supplementary Material</a> | <a href="https://github.com/omerbt/MultiDiffusion" target="_blank">Code</a> |</td>-->
-          <td align="center">| <a href="https://arxiv.org/abs/">Paper</a> | <a href="sm/index.html">Supplementary Material</a> | <a href="" target="_blank">Code (Coming soon)</a> |</td>
-        </tr>
-      </tbody>
-    </table>
-<div class="container">
-      <table width="1000" border="0" align="center">
-        <tbody>
-			<tr>
-                <hr>
-<!--                <img src="pics/teaser.jpg" alt="" width="1000" />-->
-                <video width="100%" playsinline="" autoplay="" loop="" preload="" muted=""> <source src="pics/teaser.mp4" type="video/mp4"> </video>
-<hr>
-            </tr>
-			<tr>
-<!--				<td style="text-align: left; width: 13%"><i>*Equal contribution.</i></td>-->
-		  </tr>
-		  <tr align="center"></tr>
-        </tbody></table>
-<!--	    &nbsp;-->
 
-  <p><span class="section"><b>Abstract</b></span> </p>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">TokenFlow: Consistent Diffusion Features for Consistent Video Editing</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Michal Geyer</a><sup>*</sup>,</span>
+                <span class="author-block">
+                  <a href="https://omerbt.github.io" target="_blank">Omer Bar-Tal</a><sup>*</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://www.weizmann.ac.il/math/bagon/home" target="_blank">Shai Bagon</a>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://www.weizmann.ac.il/math/dekel/" target="_blank">Tali Dekel</a>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">Weizmann institute of science</span>
+                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                    <!-- Supplementary PDF link -->
+                    <span class="link-block">
+                      <a href="sm/supp.html" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary</span>
+                    </a>
+                  </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (Coming soon)</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop width="600px" outline="0px"> 
+        <!-- Your video here -->
+        <source src="pics/teaser.mp4"
+        type="video/mp4">
+      </video>
+      <!-- <h2 class="subtitle has-text-centered"> 
+      </h2> -->
+    </div>
+  </div> 
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
           <p>
-            We present a framework for zero-shot text-driven editing of natural videos -- given a video and a target text-prompt describing the edit, our method generates a high-quality video that adheres to the target edit expressed by the prompt, while preserving the spatial layout and dynamics of the original video. Our method utilizes a pre-trained and fixed text-to-image diffusion model, and only involves simple operations in its feature space.
-            We show how to achieve temporal consistency by leveraging fine-grained semantic correspondences across frames, readily available in the feature space of the model. We demonstrate consistent, high-quality semantic edits on a variety of high-resolution videos.
+            The generative AI revolution has been recently expanded
+            to videos. Nevertheless, current state-of-the-art video mod-
+            els are still lagging behind image models in terms of visual
+            quality and user control over the generated content. In this
+            work, we present a framework that harnesses the power of
+            a text-to-image diffusion model for the task of text-driven
+            video editing. Specifically, given a source video and a target
+            text-prompt, our method generates a high-quality video that
+            adheres to the target text, while preserving the spatial lay-
+            out and dynamics of the input video. Our method is based
+            on our key observation that consistency in the edited video
+            can be obtained by enforcing consistency in the diffusion
+            feature space. We achieve this by explicitly propagating
+            diffusion features based on inter-frame correspondences,
+            readily available in the model. Thus, our framework does
+            not require any training or fine-tuning, and can work in con-
+            junction with any off-the-shelf text-to-image editing method.
+            We demonstrate state-of-the-art editing results on a variety
+            of real-world videos.
           </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
 
-<hr>
-<!--  <p class="section">&nbsp;</p>-->
-    <p class="section"><b>Method</b></p>
-      <div class="container">
-        <style>
-          .video-row {
-            margin-bottom: 20px;
-          }
-        </style>
+<!-- Paper poster -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-">
+          <h2 class="title is-3">Method</h2>
+          <div class="content has-text-justified">
         
-        <table width="940" border="0">
-          <tbody>
-            <tr>
-              <td colspan="3">
-                <p style="margin-top: -12px;">
-                  We observe that the level of temporal consistency of a video is tightly related to the temporal consistency of its feature representation, as can be seen in the feature visualization below.
-                  The features of a natural video have a shared, temporally consistent representation. When editing the video per frame, this consistency breaks. Our method ensures the same level of feature consistency as in the original video features.
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td style="font-size: 16px; text-align: center;">Original</td>
-              <td style="font-size: 16px; text-align: center;">Per Frame Editing</td>
-              <td style="font-size: 16px; text-align: center;">result_fps30</td>
-            </tr>
-            <tr class="video-row">
-              <td style="text-align: center;">
-                <a href="videos/pca/input_fps30.mp4">
-                  <video width="224" src="videos/pca/input_fps30.mp4" autoplay loop controls muted/>
-                </a>
-              </td>
-              <td style="text-align: center;">
-                <a href="videos/pca/pnp_per_frame_baseline_fps_30.mp4">
-                  <video width="224" src="videos/pca/pnp_per_frame_baseline_fps_30.mp4" autoplay loop controls muted/>
-                </a>
-              </td>
-              <td style="text-align: center;">
-                <a href="videos/pca/result_fps_30.mp4">
-                  <video width="224" src="videos/pca/result_fps_30.mp4" autoplay loop controls muted/>
-                </a>
-              </td>
-            </tr>
-            <tr class="video-row">
-              <td style="text-align: center;">
-                <a href="videos/pca/tokens_origvideo.mp4">
-                  <video width="224" src="videos/pca/tokens_origvideo.mp4" autoplay loop controls muted/>
-                </a>
-              </td>
-              <td style="text-align: center;">
-                <a href="videos/pca/tokens_pnpvideo.mp4">
-                  <video width="224" src="videos/pca/tokens_pnpvideo.mp4" autoplay loop controls muted/>
-                </a>
-              </td>
-              <td style="text-align: center;">
-                <a href="videos/pca/tokens_flowvideo.mp4">
-                  <video width="224" src="videos/pca/tokens_flowvideo.mp4" autoplay loop controls muted/>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="3">
-                <p style="margin-top: 20px; margin-bottom: -12px;">
-                  Our key finding is that a temporally-consistent edit can be achieved by enforcing consistency among the internal diffusion features across frames during the editing process.
-                  We achieve this by propagating a small set of edited features across frames, using the correspondences between the original video features.
-                  Given an input video I, we invert each frame, extract its tokens (i.e., output features from the self-attention modules), and extract inter-frame feature correspondences using a nearest-neighbor (NN) search. At each denoising step:
-                </p>
+      <table width="800" border="0">
+        <tbody>
+          <tr>
+            <td colspan="3">
+              <p>
+                We observe that the level of temporal consistency of a video is tightly related to the temporal consistency of its feature representation, as can be seen in the feature visualization below.
+                The features of a natural video have a shared, temporally consistent representation. When editing the video per frame, this consistency breaks. Our method ensures the same level of feature consistency as in the original video features.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-size: 16px; text-align: center;">Original</td>
+            <td style="font-size: 16px; text-align: center;">Per Frame Editing</td>
+            <td style="font-size: 16px; text-align: center;">Ours</td>
+          </tr>
+          <tr class="video-row">
+            <td style="text-align: center;">
+              <a href="videos/pca/input_fps30.mp4">
+                <video width="224" src="videos/pca/input_fps30.mp4" autoplay loop controls muted/>
+              </a>
+            </td>
+            <td style="text-align: center;">
+              <a href="videos/pca/pnp_per_frame_baseline_fps_30.mp4">
+                <video width="224" src="videos/pca/pnp_per_frame_baseline_fps_30.mp4" autoplay loop controls muted/>
+              </a>
+            </td>
+            <td style="text-align: center;">
+              <a href="videos/pca/result_fps_30.mp4">
+                <video width="224" src="videos/pca/result_fps_30.mp4" autoplay loop controls muted/>
+              </a>
+            </td>
+          </tr>
+          <tr class="video-row">
+            <td style="text-align: center;">
+              <a href="videos/pca/tokens_origvideo_30.mp4">
+                <video width="224" src="videos/pca/tokens_origvideo_30.mp4" autoplay loop controls muted/>
+              </a>
+            </td>
+            <td style="text-align: center;">
+              <a href="videos/pca/tokens_pnpvideo_30.mp4">
+                <video width="224" src="videos/pca/tokens_pnpvideo_30.mp4" autoplay loop controls muted/>
+              </a>
+            </td>
+            <td style="text-align: center;">
+              <a href="videos/pca/tokens_flowvideo_30.mp4">
+                <video width="224" src="videos/pca/tokens_flowvideo_30.mp4" autoplay loop controls muted/>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <p style="margin-top: 20px; margin-bottom: -12px;">
+                Our key finding is that a temporally-consistent edit can be achieved by enforcing consistency among the internal diffusion features across frames during the editing process.
+                We achieve this by propagating a small set of edited features across frames, using the correspondences between the original video features.
+                Given an input video I, we invert each frame, extract its tokens (i.e., output features from the self-attention modules), and extract inter-frame feature correspondences using a nearest-neighbor (NN) search. At each denoising step:
+              </p>
+              <ol>
+                (I) We sample keyframes from the noisy video J_t and jointly edit them using an extended-attention block. The set of resulting edited tokens is T_base.</li>
                 <br>
-                <ol>
-                  <li>We sample keyframes from the noisy video J_t and jointly edit them using an extended-attention block. The set of resulting edited tokens is T_base.</li>
-                  <li>We propagate the edited tokens across the video according to the pre-computed correspondences of the original video features. To denoise J_t, we feed each frame to the network and replace the generated tokens with the tokens obtained from the propagation step (ii).</li>
-                </ol>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="3"><img src="pics/pipeline.png" alt="" width="1000" /></td>
-            </tr>
-          </tbody>
-        </table>
-        
-        
-        
-<br>
-          <table align="" width="940" border="0">
-  <tbody>
-    <!-- <tr>
-      <td><p>
-          Note that while each denoising step may pull to a different direction,
-          our process fuses these inconsistent directions into a global denoising step, resulting in a high-quality seamless image.
-      </p></td>
-    </tr> -->
+                (II) We propagate the edited tokens across the video according to the pre-computed correspondences of the original video features. To denoise J_t, we feed each frame to the network and replace the generated tokens with the tokens obtained from the propagation step (ii).</li>
+              </ol>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-  </tbody>
-</table>
-<hr>
-<p class="section"><b>More results</b></p>
-<td colspan="3">
-  <p style="margin-top: -12px;">
-    Hover to see source video and target text.
-  </p>
-</td>
-  <div class="video-wrapper" style="width: 32%">
-    <video class="hover-video" src="videos/results/bread/input_fps20.mp4" preload="metadata" autoplay loop muted> </video>
-    <video class="default-video" src="videos/results/bread/result_fps_20.mp4" preload="metadata" autoplay controls loop muted></video>
-    <div class="overlay-text">an ice sculpture</div>
-  </div>
-  <div class="video-wrapper" style="width: 32%">
-    <video class="hover-video" src="videos/results/wolf-part/input_fps20.mp4" preload="metadata" autoplay loop muted> </video>
-    <video class="default-video" src="videos/results/wolf-part/result_fps_20.mp4" preload="metadata" autoplay controls loop muted></video>
-    <div class="overlay-text">a robotic wolf</div>
-  </div>
-  <div class="video-wrapper" style="width: 32%">
-    <video class="hover-video" src="videos/results/woman-running/input_fps30.mp4" preload="metadata" autoplay loop muted> </video>
-    <video class="default-video" src="videos/results/woman-running/marble.mp4" preload="metadata" autoplay controls loop muted></video>
-    <div class="overlay-text">a marble sculpture</div>
-  </div>
-  <br />
-  <div class="video-grid">
+        <div>
+          <td colspan="3"><img src="pics/pipeline.png" alt="" width="1000" /></td>
+        </div>
+      
+      </div>
+      </div>
+  </section>
+<!--End paper poster -->
+
+<!-- Video grid -->
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">TokenFlow Editing results</h2>
+          <div class="content has-text-justified">
+            <td colspan="3">
+              <p style="margin-top: -12px;">
+                Hover over the videos to see the original video and text prompts.
+              </p>
+            </td>
+  <!-- </td> -->
+    <div class="video-wrapper" style="width: 32%">
+      <video class="hover-video" src="videos/results/bread/input_fps20.mp4" preload="metadata" autoplay loop muted> </video>
+      <video class="default-video" src="videos/results/bread/result_fps_20.mp4" preload="metadata" autoplay controls loop muted></video>
+      <div class="overlay-text">an ice sculpture</div>
+    </div>
+    <div class="video-wrapper" style="width: 32%">
+      <video class="hover-video" src="videos/results/wolf-part/input_fps20.mp4" preload="metadata" autoplay loop muted> </video>
+      <video class="default-video" src="videos/results/wolf-part/result_fps_20.mp4" preload="metadata" autoplay controls loop muted></video>
+      <div class="overlay-text">a robotic wolf</div>
+    </div>
+    <div class="video-wrapper" style="width: 32%">
+      <video class="hover-video" src="videos/results/woman-running/input_fps30.mp4" preload="metadata" autoplay loop muted> </video>
+      <video class="default-video" src="videos/results/woman-running/marble.mp4" preload="metadata" autoplay controls loop muted></video>
+      <div class="overlay-text">a marble sculpture</div>
+    </div>
+    <br />
+    <div class="video-grid">
+      <div class="video-wrapper">
+        <video class="hover-video" src="videos/results/poodle_2/input_fps30.mp4" preload="metadata" autoplay loop muted> </video>
+        <video class="default-video" src="videos/results/poodle_2/result_fps_30.mp4" preload="metadata" autoplay controls loop muted></video>
+        <div class="overlay-text">Van Gogh painting</div>
+      </div>
     <div class="video-wrapper">
-      <video class="hover-video" src="videos/results/poodle_2/input_fps30.mp4" preload="metadata" autoplay loop muted> </video>
-      <video class="default-video" src="videos/results/poodle_2/result_fps_30.mp4" preload="metadata" autoplay controls loop muted></video>
+      <video class="default-video" src="videos/results/stork/origami.mp4" preload="metadata" autoplay loop muted> </video>
+      <video class="hover-video" src="videos/results/stork/input_fps30.mp4" preload="metadata" autoplay controls loop muted></video>
+      <div class="overlay-text">an origami of a stork</div>
+    </div>
+    <br />
+    <div class="video-wrapper">
+      <video class="default-video" src="videos/results/tesla/result_fps_30.mp4" preload="metadata" autoplay loop muted> </video>
+      <video class="hover-video" src="videos/results/tesla/input_fps30.mp4" preload="metadata" autoplay controls loop muted></video>
+      <div class="overlay-text">a car made of ice on an icy road</div>
+    </div>
+    <div class="video-wrapper">
+      <video class="hover-video" src="videos/results/gen1-face/input_fps20.mp4" preload="metadata" autoplay loop muted> </video>
+      <video class="default-video" src="videos/results/gen1-face/result_fps_20.mp4" preload="metadata" autoplay controls loop muted></video>
       <div class="overlay-text">Van Gogh painting</div>
     </div>
-  <div class="video-wrapper">
-    <video class="default-video" src="videos/results/stork/origami.mp4" preload="metadata" autoplay loop muted> </video>
-    <video class="hover-video" src="videos/results/stork/input_fps30.mp4" preload="metadata" autoplay controls loop muted></video>
-    <div class="overlay-text">an origami of a stork</div>
-  </div>
-  <br />
-  <div class="video-wrapper">
-    <video class="default-video" src="videos/results/tesla/result_fps_30.mp4" preload="metadata" autoplay loop muted> </video>
-    <video class="hover-video" src="videos/results/tesla/input_fps30.mp4" preload="metadata" autoplay controls loop muted></video>
-    <div class="overlay-text">a car made of ice</div>
-  </div>
-  <div class="video-wrapper">
-    <video class="hover-video" src="videos/results/gen1-face/input_fps20.mp4" preload="metadata" autoplay loop muted> </video>
-    <video class="default-video" src="videos/results/gen1-face/result_fps_20.mp4" preload="metadata" autoplay controls loop muted></video>
-    <div class="overlay-text">Van Gogh painting</div>
-  </div>
-  <br/>
-  <div class="video-wrapper">
-    <video class="default-video" src="videos/results/man_basket/result_fps_30.mp4" preload="metadata" autoplay loop muted> </video>
-    <video class="hover-video" src="videos/results/man_basket/input_fps30.mp4" preload="metadata" autoplay controls loop muted></video>
-    <div class="overlay-text">a robot spinning a silver ball</div>
-  </div>
-  <div class="video-wrapper">
-    <video class="hover-video" src="videos/results/kittens/input_fps30.mp4" preload="metadata" autoplay loop muted> </video>
-    <video class="default-video" src="videos/results/kittens/result_fps_30.mp4" preload="metadata" autoplay controls loop muted></video>
-    <div class="overlay-text">colorful crochet kittens</div>
-  </div>
-  <br/>
-  <!-- Add more video-wrapper divs for additional videos -->
-</div>
-
-<hr>
-
-<div>
-<!--<p class="section">&nbsp;</p>-->
-<p class="section" id="paper"><b>Comparisons</b></p>
-
-<div class="container" width="1000px">
-<div id="carouselExample" class="carousel slide" data-ride="carousel">
-  <div class="caption-container">
-    <div class="caption">
-      <p>Ours</p>
+    <br/>
+    <div class="video-wrapper">
+      <video class="default-video" src="videos/results/man_basket/result_fps_30.mp4" preload="metadata" autoplay loop muted> </video>
+      <video class="hover-video" src="videos/results/man_basket/input_fps30.mp4" preload="metadata" autoplay controls loop muted></video>
+      <div class="overlay-text">a robot spinning a silver ball</div>
     </div>
-    <div class="caption">
-      <p>Text-to-video <a href="#ref-txt2vid">[1]</a></p>
+    <div class="video-wrapper">
+      <video class="hover-video" src="videos/results/kittens/input_fps30.mp4" preload="metadata" autoplay loop muted> </video>
+      <video class="default-video" src="videos/results/kittens/result_fps_30.mp4" preload="metadata" autoplay controls loop muted></video>
+      <div class="overlay-text">colorful crochet kittens</div>
     </div>
-    <div class="caption">
-      <p>Tune-a-video <a href="#ref-TAV">[2]</a></p>
-    </div>
-    <div class="caption">
-      <p>Gen-1 <a href="#ref-gen1">[3]</a></p>
-    </div>
-    <div class="caption">
-      <p>Per frame <a href="#ref-pnp">[4]</a></p>
-    </div>
-    <!-- Add remaining captions here -->
+    <br/>
   </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <tr class="video-row">
+  
+</section>
+<!-- End Video grid -->
 
-        <td style="text-align: center;">
-          <a href="videos/compare/poodle/result_fps_30.mp4">
-            <video width=18% src="videos/compare/poodle/result_fps_30.mp4" autoplay loop controls muted/>
-          </a>
-        </td>
-        <td style="text-align: center;">
-          <a href="videos/compare/poodle/txt2vid_fps30.mp4">
-            <video width=18% src="videos/compare/poodle/txt2vid_fps30.mp4" autoplay loop controls muted/>
-          </a>
-        </td>
-        <td style="text-align: center;">
-          <a href="videos/compare/poodle/tav_fps30.mp4">
-            <video width=18% src="videos/compare/poodle/tav_fps30.mp4" autoplay loop controls muted/>
-          </a>
-        </td>
-        <td style="text-align: center;">
-          <a href="videos/compare/poodle/gen1_fps30.mp4">
-            <video width=18% src="videos/compare/poodle/gen1_fps30.mp4" autoplay loop controls muted/>
-          </a>
-        </td>
-        <td style="text-align: center;">
-          <a href="videos/compare/poodle/pnp_per_frame_baseline_fps_30.mp4">
-            <video width=18% src="videos/compare/poodle/pnp_per_frame_baseline_fps_30.mp4" autoplay loop controls muted/>
-          </a>
-        </td>
-      </tr>
+<!-- Video carousel -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column custom-width">
+          <h2 class="title is-3">Comparisons</h2>
+          <div class="content has-text-justified">
+            <div class="caption-container" style="width: 1180px; padding-left: 50px">
+              <div class="caption">
+                <p>Input video</p>
+              </div>
+              <div class="caption">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ours</p>
+              </div>
+              <div class="caption">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text-to-video <a href="#ref-txt2vid">[1]</a></p>
+              </div>
+              <div class="caption">
+                <p>Tune-a-video <a href="#ref-TAV">[2]</a></p>
+              </div>
+              <div class="caption">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gen-1 <a href="#ref-gen1">[3]</a></p>
+              </div>
+              <div class="caption">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Per frame PnP<a href="#ref-pnp">[4]</a></p>
+              </div>
+              <!-- Add remaining captions here  -->
+            </div>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+           <!-- Add caption element for each video -->
+          <video poster="" id="video11" autoplay controls muted loop width="200px">
+            <!-- Your video file here -->
+            <source src="videos/compare/bread/input_fps20.mp4"
+            type="video/mp4">
+          </video>
+          <video poster="" id="video12" autoplay controls muted loop width="200px">
+            <!-- Your video file here -->
+            <source src="videos/compare/bread/result_fps_20.mp4"
+            type="video/mp4">
+          </video>
+          
+          <video poster="" id="video13" autoplay controls muted loop width="200px">
+            <!-- Your video file here -->
+            <source src="videos/compare/bread/txt2vid_fps20.mp4"
+            type="video/mp4">
+          </video>
+          
+          <video poster="" id="video14" autoplay controls muted loop width="200px">
+            <!-- Your video file here -->
+            <source src="videos/compare/bread/tav_fps20.mp4"
+            type="video/mp4">
+          </video>
+          
+          <video poster="" id="video15" autoplay controls muted loop width="200px">
+            <!-- Your video file here -->
+            <source src="videos/compare/bread/gen1_fps20.mp4"
+            type="video/mp4">
+          </video>
+          
+          <video poster="" id="video16" autoplay controls muted loop width="200px">
+            <!-- Your video file here -->
+            <source src="videos/compare/bread/pnp_per_frame_baseline_fps_20.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          
+          <video poster="" id="video1" autoplay controls muted loop width="200px">
+            <!-- Your video file here -->
+            <source src="videos/compare/poodle/input_fps30.mp4"
+            type="video/mp4">
+          </video>
+          
+          <video poster="" id="video21" autoplay controls muted loop width="200px">
+            <!-- Your video file here -->
+            <source src="videos/compare/poodle/result_fps_30.mp4"
+            type="video/mp4">
+          </video>
+          
+          <video poster="" id="video22" autoplay controls muted loop width="200px">
+            <!-- Your video file here -->
+            <source src="videos/compare/poodle/txt2vid_fps30.mp4"
+            type="video/mp4">
+          </video>
+          
+          <video poster="" id="video23" autoplay controls muted loop width="200px">
+            <!-- Your video file here -->
+            <source src="videos/compare/poodle/tav_fps30.mp4"
+            type="video/mp4">
+          </video>
+          
+          <video poster="" id="video24" autoplay controls muted loop width="200px">
+            <!-- Your video file here -->
+            <source src="videos/compare/poodle/gen1_fps30.mp4"
+            type="video/mp4">
+          </video>
+          
+          <video poster="" id="video25" autoplay controls muted loop width="200px">
+            <!-- Your video file here -->
+            <source src="videos/compare/poodle/pnp_per_frame_baseline_fps_30.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        </div>
+      </div>
     </div>
-
-
-    <div class="carousel-item">
-      <tr class="video-row">
-      <td style="text-align: center;">
-        <a href="videos/compare/bread/result_fps_20.mp4">
-          <video width=18% src="videos/compare/bread/result_fps_20.mp4" autoplay loop controls muted/>
-        </a>
-      </td>
-      <td style="text-align: center;">
-        <a href="videos/compare/bread/txt2vid_fps20.mp4">
-          <video width=18% src="videos/compare/bread/txt2vid_fps20.mp4" autoplay loop controls muted/></video>
-        </a>
-      </td>
-      <td style="text-align: center;">
-        <a href="videos/compare/bread/tav_fps20.mp4">
-          <video width=18% src="videos/compare/bread/tav_fps20.mp4" autoplay loop controls muted/>
-        </a>
-      </td>
-      <td style="text-align: center;">
-        <a href="videos/compare/bread/gen1_fps20.mp4">
-          <video width=18% src="videos/compare/bread/gen1_fps20.mp4" autoplay loop controls muted/>
-        </a>
-      </td>
-      <td style="text-align: center;">
-        <a href="videos/compare/bread/pnp_per_frame_baseline_fps_20.mp4">
-          <video width=18% src="videos/compare/bread/pnp_per_frame_baseline_fps_20.mp4" autoplay loop controls muted/>
-        </a>
-      </td>
-    </tr>
-    </div>
-
-
   </div>
-  <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-</div>
+</section>
+<!-- End video carousel -->
 
-<p class="section" id="paper"><b>Paper</b></p>
-          <table width="940" border="0">
-            <tbody>
-              <tr>
-                <td height="100"><a href="" target="_blank" rel="noopener noreferrer"><img src="./pics/paper_cover.jpg" alt="" width="140" height="167"></a></td>
-                <td width="750"><p><b>TokenFlow: Consistent Diffusion Features for Consistent Video Editing
-                </b><br>
-                  Michal Geyer <sup>*</sup>, Omer Bar Tal <sup>*</sup>, Shai Bagon, Tali Dekel.<br />
-                  (* indicates equal contribution)                  <br>
-                  <em></em><br><br>
-                   [<a href="https://arxiv.org/abs/2302.08113" target="_blank" rel="noopener noreferrer">paper</a>]</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <p class="section">&nbsp;</p>
-          <p class="section" id="sm"><b>Supplementary Material</b></p>
-          <table width="587" height="136" border="0">
-            <tbody>
-              <tr>
-                <td width="180"><img src="./pics/sm_illustration.png" alt="" height="150"></td>
-                <td align="left">
-                  <p>[<a href="./sm/index.html" target="_blank">supplementary page</a>]</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-<!--	      <p class="section">&nbsp;</p>-->
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>BibTex Code Here</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
 
-          <table border="0">
-            <tbody>
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column custom-width">
+          <!-- <h2 class="title is-3"></h2> -->
+          <div class="content has-text-justified">
+  <p>
+    <a name="ref-txt2vid" id="ref-txt2vid"></a>
+    [1] Levon Khachatryan, Andranik Movsisyan, Vahram Tadevosyan, Roberto Henschel, Zhangyang Wang, Shant Navasardyan, and Humphrey Shi. Text2video-zero: Text-to-image diffusion models are zero-shot video generators. arXiv preprint arXiv:2303.13439, 2023.
+  </p>
+  <p>
+    <a name="ref-TAV" id="ref-TAV"></a>
+    [2] Jay Zhangjie Wu, Yixiao Ge, Xintao Wang, Stan Weixian
+    Lei, Yuchao Gu, Wynne Hsu, Ying Shan, Xiaohu Qie, and
+    Mike Zheng Shou. Tune-a-video: One-shot tuning of image
+    diffusion models for text-to-video generation. arXiv preprint
+    arXiv:2212.11565, 2022
+  </p>
+  <p>
+    <a name="ref-gen1" id="ref-gen1"></a>
+    [3] Patrick Esser, Johnathan Chiu, Parmida Atighehchian,
+    Jonathan Granskog, and Anastasis Germanidis. Structure
+    and content-guided video synthesis with diffusion models.
+    arXiv preprint arXiv:2302.03011, 2023
+  </p>
+  <p>
+    <a name="ref-pnp" id="ref-pnp"></a>
+    [4] Narek Tumanyan, Michal Geyer, Shai Bagon, and
+    Tali Dekel. Plug-and-play diffusion features for text-
+    driven image-to-image translation. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2023
+  </p>
+  
+  <p>
+    <a name="ref-ebsynth" id="ref-ebsynth"></a>
+    <!-- [6] Gwanghyun Kim, Taesung Kwon, and Jong Chul Ye. Diffusionclip: Text-guided diffusion models for robust image manipulation. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2022. -->
+  </p>
+  </div>
+        </div>
+      </div>
+    </div>  
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
 
-            </tbody>
-          </table>
-<!--	      <p class="section"></p>-->
-<!--          <p>&nbsp;</p>-->
-</div>
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
 
-             <p class="section">&nbsp;</p>
-         <p class="section" id="bibtex"><b>Bibtex</b></p>
-         <table border="0">
-            <tbody>
-               <pre style=" display: block;
-                  background: #eee;
-                  white-space: pre;
-                  -webkit-overflow-scrolling: touch;
-                  max-width: 100%;
-                  min-width: 100px;
-                  border-radius: 20px;
-                  padding: 0;;">
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 
-<!-- @article{bar2023multidiffusion,
-  title={MultiDiffusion: Fusing Diffusion Paths for Controlled Image Generation},
-  author={Bar-Tal, Omer and Yariv, Lior and Lipman, Yaron and Dekel, Tali},
-  journal={arXiv preprint arXiv:2302.08113},
-  year={2023}
-} -->
-			  </pre>
-            </tbody>
-         </table>
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
+    <!-- End of Statcounter Code -->
     <script>
-
-
-
-        let slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
-// script.js
-window.addEventListener('DOMContentLoaded', (event) => {
-  const videoWrappers = document.querySelectorAll('.video-wrapper');
-
-  videoWrappers.forEach(wrapper => {
-    const defaultVideo = wrapper.querySelector('.default-video');
-    const aspectRatio = defaultVideo.videoWidth / defaultVideo.videoHeight;
-    const height = wrapper.offsetWidth / aspectRatio;
-
-    wrapper.style.height = `${height}px`;
-
-    wrapper.addEventListener('mouseenter', () => {
-      defaultVideo.pause();
-      hoverVideo.play();
-    });
-
-    wrapper.addEventListener('mouseleave', () => {
-      defaultVideo.play();
-      hoverVideo.pause();
-    });
-  });
-});
-
-
-    </script>
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      window.addEventListener('DOMContentLoaded', (event) => {
+        const videoWrappers = document.querySelectorAll('.video-wrapper');
+      
+        videoWrappers.forEach(wrapper => {
+          const defaultVideo = wrapper.querySelector('.default-video');
+          const aspectRatio = defaultVideo.videoWidth / defaultVideo.videoHeight;
+          const height = wrapper.offsetWidth / aspectRatio;
+      
+          wrapper.style.height = `${height}px`;
+      
+          wrapper.addEventListener('mouseenter', () => {
+            defaultVideo.pause();
+            hoverVideo.play();
+          });
+      
+          wrapper.addEventListener('mouseleave', () => {
+            defaultVideo.play();
+            hoverVideo.pause();
+          });
+        });
+      }); 
+      $(document).ready(function() {
+        var carouselItems = $('.carousel .item');
+        var numItems = carouselItems.length;
+        var numVideos = 5;
+        var currentIndex = 0;
     
-
-	
-<p><br>
-</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-
-
-<p>
-  <a name="ref-txt2vid" id="ref-txt2vid"></a>
-  [1] Levon Khachatryan, Andranik Movsisyan, Vahram Tadevosyan, Roberto Henschel, Zhangyang Wang, Shant Navasardyan, and Humphrey Shi. Text2video-zero: Text-to-image diffusion models are zero-shot video generators. arXiv preprint arXiv:2303.13439, 2023.
-</p>
-<p>
-  <a name="ref-TAV" id="ref-TAV"></a>
-  [2] Jay Zhangjie Wu, Yixiao Ge, Xintao Wang, Stan Weixian
-  Lei, Yuchao Gu, Wynne Hsu, Ying Shan, Xiaohu Qie, and
-  Mike Zheng Shou. Tune-a-video: One-shot tuning of image
-  diffusion models for text-to-video generation. arXiv preprint
-  arXiv:2212.11565, 2022
-</p>
-<p>
-  <a name="ref-gen1" id="ref-gen1"></a>
-  [3] Patrick Esser, Johnathan Chiu, Parmida Atighehchian,
-  Jonathan Granskog, and Anastasis Germanidis. Structure
-  and content-guided video synthesis with diffusion models.
-  arXiv preprint arXiv:2302.03011, 2023
-</p>
-<p>
-  <a name="ref-pnp" id="ref-pnp"></a>
-  [4] Narek Tumanyan, Michal Geyer, Shai Bagon, and
-  Tali Dekel. Plug-and-play diffusion features for text-
-  driven image-to-image translation. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2023
-</p>
-
-<p>
-  <a name="ref-t2l" id="ref-t2l"></a>
-  [5] Omer Bar-Tal, Dolev Ofri-Amar, Rafail Fridman, Yoni Kasten, and Tali Dekel. Text2live: Text-driven layered image and video editing. In European Conference on Computer Vision. Springer, 2022.
-</p>
-<p>
-  <a name="ref-ebsynth" id="ref-ebsynth"></a>
-  <!-- [6] Gwanghyun Kim, Taesung Kwon, and Jong Chul Ye. Diffusionclip: Text-guided diffusion models for robust image manipulation. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2022. -->
-</p>
-<p>
-
-
-</div>
-</body>
-</html>
+        $('.carousel').on('click', function() {
+          currentIndex++;
+          if (currentIndex + numVideos <= numItems) {
+            carouselItems.removeClass('active');
+            carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
+          } else {
+            currentIndex = 0;
+            carouselItems.removeClass('active');
+            carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
+          }
+        });
+    
+        carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
+      });
+    </script>
+  </body>
+  </html>
