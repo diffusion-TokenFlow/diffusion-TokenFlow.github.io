@@ -245,9 +245,9 @@
               <ol>
                 (I) We sample keyframes from the noisy video J_t and jointly edit them using an extended-attention block. The set of resulting edited tokens is T_base.</li>
                 <br>
-                (II) We propagate the edited tokens across the video according to the pre-computed correspondences of the original video features. To denoise J_t.</li>
+                (II) We propagate the edited tokens across the video according to the pre-computed correspondences of the original video features.</li>
               </ol>
-              we feed each frame to the network and replace the generated tokens with the tokens obtained from the propagation step (II).
+              To denoise J_t, we feed each frame to the network and replace the generated tokens with the tokens obtained from the propagation step (II).
             </td>
           </tr>
         </tbody>
