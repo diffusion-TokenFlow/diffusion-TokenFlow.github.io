@@ -347,100 +347,128 @@
         <div class="column custom-width">
           <h2 class="title is-3">Comparisons</h2>
           <div class="content has-text-justified">
-            <div class="caption-container" style="width: 1180px; padding-left: 50px">
+            <div class="caption-container" style="width: 1200px; padding-left: 50px">
               <div class="caption">
                 <p>Input video</p>
               </div>
               <div class="caption">
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ours</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ours</p>
               </div>
               <div class="caption">
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text-to-video <a href="#ref-txt2vid">[1]</a></p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text-to-video <a href="#ref-txt2vid">[1]</a></p>
               </div>
               <div class="caption">
-                <p>Tune-a-video <a href="#ref-TAV">[2]</a></p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;Tune-a-video <a href="#ref-TAV">[2]</a></p>
               </div>
               <div class="caption">
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gen-1 <a href="#ref-gen1">[3]</a></p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gen-1 <a href="#ref-gen1">[3]</a></p>
               </div>
               <div class="caption">
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Per frame PnP<a href="#ref-pnp">[4]</a></p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Per frame PnP<a href="#ref-pnp">[4]</a></p>
               </div>
+              <div class="caption">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fate-Zero<a href="#ref-fatezero">[5]</a></p>
+              </div>
+              <div class="caption">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rerender-a-video<a href="#ref-rerender">[6]</a></p>
+              </div>
+              
               <!-- Add remaining captions here  -->
             </div>
-      <div id="results-carousel" class="carousel results-carousel">
+      <div id="results-carousel" class="carousel results-carousel" align="center">
         <div class="item item-video1">
            <!-- Add caption element for each video preload="auto"-->
-          <video preload="auto"poster="" id="video11" autoplay controls muted loop width="200px">
+          <video preload="auto"poster="" id="video11" autoplay controls muted loop width="140px">
             <!-- Your video preload="auto"file here -->
             <source src="videos/compare/bread/input_fps20.mp4"
             type="video/mp4">
           </video>
-          <video preload="auto"poster="" id="video12" autoplay controls muted loop width="200px">
+          <video preload="auto"poster="" id="video12" autoplay controls muted loop width="140px">
             <!-- Your video preload="auto"file here -->
             <source src="videos/compare/bread/result_fps_20.mp4"
             type="video/mp4">
           </video>
           
-          <video preload="auto"poster="" id="video13" autoplay controls muted loop width="200px">
+          <video preload="auto"poster="" id="video13" autoplay controls muted loop width="140px">
             <!-- Your video preload="auto"file here -->
             <source src="videos/compare/bread/txt2vid_fps20.mp4"
             type="video/mp4">
           </video>
           
-          <video preload="auto"poster="" id="video14" autoplay controls muted loop width="200px">
+          <video preload="auto"poster="" id="video14" autoplay controls muted loop width="140px">
             <!-- Your video preload="auto"file here -->
             <source src="videos/compare/bread/tav_fps20.mp4"
             type="video/mp4">
           </video>
           
-          <video preload="auto"poster="" id="video15" autoplay controls muted loop width="200px">
+          <video preload="auto"poster="" id="video15" autoplay controls muted loop width="140px">
             <!-- Your video preload="auto"file here -->
             <source src="videos/compare/bread/gen1_fps20.mp4"
             type="video/mp4">
           </video>
           
-          <video preload="auto"poster="" id="video16" autoplay controls muted loop width="200px">
+          <video preload="auto"poster="" id="video16" autoplay controls muted loop width="140px">
             <!-- Your video preload="auto"file here -->
             <source src="videos/compare/bread/pnp_per_frame_baseline_fps_20.mp4"
             type="video/mp4">
           </video>
+          <video preload="auto"poster="" id="video25" autoplay controls muted loop width="140px">
+            <!-- Your video preload="auto"file here -->
+            <source src="./sm/assets/bread/a shiny metal scultpture/fatezero_20_fps.mp4"
+            type="video/mp4">
+          </video>
+          <video preload="auto"poster="" id="video25" autoplay controls muted loop width="140px">
+            <!-- Your video preload="auto"file here -->
+            <source src="./sm/assets/bread/a shiny metal scultpture/rerender_fps_20.mp4"
+            type="video/mp4">
+          </video>
         </div>
+        
         <div class="item item-video2">
           
-          <video preload="auto"poster="" id="video1" autoplay controls muted loop width="200px">
+          <video preload="auto"poster="" id="video1" autoplay controls muted loop width="140px">
             <!-- Your video preload="auto"file here -->
             <source src="videos/compare/poodle/input_fps30.mp4"
             type="video/mp4">
           </video>
           
-          <video preload="auto"poster="" id="video21" autoplay controls muted loop width="200px">
+          <video preload="auto"poster="" id="video21" autoplay controls muted loop width="140px">
             <!-- Your video preload="auto"file here -->
             <source src="videos/compare/poodle/result_fps_30.mp4"
             type="video/mp4">
           </video>
           
-          <video preload="auto"poster="" id="video22" autoplay controls muted loop width="200px">
+          <video preload="auto"poster="" id="video22" autoplay controls muted loop width="140px">
             <!-- Your video preload="auto"file here -->
             <source src="videos/compare/poodle/txt2vid_fps30.mp4"
             type="video/mp4">
           </video>
           
-          <video preload="auto"poster="" id="video23" autoplay controls muted loop width="200px">
+          <video preload="auto"poster="" id="video23" autoplay controls muted loop width="140px">
             <!-- Your video preload="auto"file here -->
             <source src="videos/compare/poodle/tav_fps30.mp4"
             type="video/mp4">
           </video>
           
-          <video preload="auto"poster="" id="video24" autoplay controls muted loop width="200px">
+          <video preload="auto"poster="" id="video24" autoplay controls muted loop width="140px">
             <!-- Your video preload="auto"file here -->
             <source src="videos/compare/poodle/gen1_fps30.mp4"
             type="video/mp4">
           </video>
           
-          <video preload="auto"poster="" id="video25" autoplay controls muted loop width="200px">
+          <video preload="auto"poster="" id="video25" autoplay controls muted loop width="140px">
             <!-- Your video preload="auto"file here -->
             <source src="videos/compare/poodle/pnp_per_frame_baseline_fps_30.mp4"
+            type="video/mp4">
+          </video>
+          <video preload="auto"poster="" id="video25" autoplay controls muted loop width="140px">
+            <!-- Your video preload="auto"file here -->
+            <source src="./sm/assets/poodle/a dog with a rainbow texture/fatezero_30_fps.mp4"
+            type="video/mp4">
+          </video>
+          <video preload="auto"poster="" id="video25" autoplay controls muted loop width="140px">
+            <!-- Your video preload="auto"file here -->
+            <source src="./sm/assets/poodle/a dog with a rainbow texture/rerender_fps_30.mp4"
             type="video/mp4">
           </video>
         </div>

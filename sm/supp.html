@@ -164,7 +164,7 @@
   </p>
 
   
-  <table  width="1200" align="center">
+  <table  width="600" align="center">
 		<tbody>
           <th style="font-size: 16px">Input video</th>
           <th style="font-family: Chalkduster">"Van-Gogh style portrait of a man spinning a basketball"</th>
@@ -207,11 +207,11 @@
     <p>&nbsp;</p>
     <hr>
     
-    <h2 id="our_results_others_container" align="left"><a name="image-results" id="image-results"></a>Our Results combined with another image editing technique</h2>
+    <h2 id="our_results_others_container" align="left"><a name="image-results" id="image-results"></a>Our Results combined with other image editing techniques</h2>
   
   
     <p align="left">
-      We present sample results of our method on top of a different editing method-- SDEdit (<a href="#ref-SDEdit">[7]</a>).
+      We present sample results of our method on top of SDEdit (<a href="#ref-SDEdit">[7]</a>).
       <!-- Since accurate structure preservation is essential to our method, we use the noise obtained from DDIM inversion to noise the frames to a large time-step. -->
     </p>
     
@@ -241,28 +241,37 @@
       </tbody>
     </table>
 
-        
-    <!-- <table  width="900" align="center">
+    <p >
+      We present sample results of our method on top of ControlNet image synthesis (<a href="#ref-controlnet">[9]</a>).
+      <!-- Since accurate structure preservation is essential to our method, we use the noise obtained from DDIM inversion to noise the frames to a large time-step. -->
+    </p>
+    
+    <table  width="900" align="center">
       <tbody>
         <tr>
-          <th style="font-family: Chalkduster">"a shiny silver robot"</th>
+          <th style="font-family: Chalkduster">"a colorful oil painting of a wolf"</th>
           <th style="font-size: 16px">Per-frame ControlNet <a href="#ref-ControlNet">[6]</a></th>
           <th style="font-size: 16px">TokenFlow + ControlNet <a href="#ref-ControlNet">[6]</a></th>
       </tr>
         <tr>
-          <th><a href="assets/wolf-part/input_fps20.mp4"> <a href="assets/wolf-part/input_fps20.mp4"> <video  width="224" src="assets/wolf-part/input_fps20.mp4" autoplay loop controls muted /> </a> </a></th>
-          <th><a href="assets/wolf-part/a shiny silver robotic wolf, futuristic, 8K, masterpiece, award winning/vanilla_sde_fps20.mp4"> <a href="assets/wolf-part/a shiny silver robotic wolf, futuristic, 8K, masterpiece, award winning/vanilla_sde_fps20.mp4"> <video  width="224" src="assets/wolf-part/a shiny silver robotic wolf, futuristic, 8K, masterpiece, award winning/vanilla_sde_fps20.mp4" autoplay loop controls muted/> </a> </a></th>
-          <th><a href="assets/wolf-part/a shiny silver robotic wolf, futuristic, 8K, masterpiece, award winning/sde_result_fps20.mp4"> <a href="assets/wolf-part/a shiny silver robotic wolf, futuristic, 8K, masterpiece, award winning/sde_result_fps20.mp4"> <video  width="224" src="assets/wolf-part/a shiny silver robotic wolf, futuristic, 8K, masterpiece, award winning/sde_result_fps20.mp4" autoplay loop controls muted/> </a> </a></th>
+          <th><a href="assets/wolf-part/oil_painting/input_fps20.mp4"> <a href="assets/wolf-part/oil_painting/input_fps20.mp4"> <video  width="224" src="assets/wolf-part/oil_painting/input_fps20.mp4" autoplay loop controls muted /> </a> </a></th>
+          <th><a href="assets/wolf-part/oil_painting/perframe_controlnet_fps_20.mp4"> <a href="assets/wolf-part/oil_painting/perframe_controlnet_fps_20.mp4"> <video  width="224" src="assets/wolf-part/oil_painting/perframe_controlnet_fps_20.mp4" autoplay loop controls muted/> </a> </a></th>
+          <th><a href="assets/wolf-part/oil_painting/tokenflow_controlnet_fps_20.mp4"> <a href="assets/wolf-part/oil_painting/tokenflow_controlnet_fps_20.mp4"> <video  width="224" src="assets/wolf-part/oil_painting/tokenflow_controlnet_fps_20.mp4" autoplay loop controls muted/> </a> </a></th>
       </tr>
-      
       <tr>
-        <th><a href="assets/bread/input_fps20.mp4"> <a href="assets/bread/input_fps20.mp4"> <video  width="224" src="assets/bread/input_fps20.mp4" autoplay loop controls muted /> </a> </a></th>
-        <th><a href="assets/bread/an ice sculpture/vanilla_sde_fps20.mp4"> <a href="assets/bread/an ice sculpture/vanilla_sde_fps20.mp4"> <video  width="224" src="assets/bread/an ice sculpture/vanilla_sde_fps20.mp4" autoplay loop controls muted/> </a> </a></th>
-        <th><a href="assets/bread/an ice sculpture/sde_result_fps_20.mp4"> <a href="assets/bread/an ice sculpture/sde_result_fps_20.mp4"> <video  width="224" src="assets/bread/an ice sculpture/sde_result_fps_20.mp4" autoplay loop controls muted/> </a> </a></th>
+        <th style="font-family: Chalkduster">"an anime of a man in a field"</th>
+        <th style="font-size: 16px"></th>
+        <th style="font-size: 16px"></th>
+    </tr>
+      <tr>
+        <th><a href="assets/man-dance/input_fps20.mp4"> <a href="assets/man-dance/input_fps20.mp4"> <video  width="224" src="assets/man-dance/input_fps20.mp4" autoplay loop controls muted /> </a> </a></th>
+        <th><a href="assets/man-dance/perframe_controlnet_fps_20.mp4"> <a href="assets/man-dance/perframe_controlnet_fps_20.mp4"> <video  width="224" src="assets/man-dance/perframe_controlnet_fps_20.mp4" autoplay loop controls muted/> </a> </a></th>
+        <th><a href="assets/man-dance/tokenflow_controlnet_fps_20.mp4"> <a href="assets/man-dance/tokenflow_controlnet_fps_20.mp4"> <video  width="224" src="assets/man-dance/tokenflow_controlnet_fps_20.mp4" autoplay loop controls muted/> </a> </a></th>
       </tr>
-                  <tr> <td><br /></td> </tr>
+                  <tr> <td><br /></td> </tr> 
       </tbody>
-    </table> -->
+    </table>
+        
       <!------------------ END SECTION ------------------>
   
     
@@ -277,11 +286,12 @@
         <li>Tune-a-video (<a href="#ref-TAV">[2]</a>).</li> 
         <li>Gen1 (<a href="#ref-gen1">[3]</a>).</li> 
         <li>Plug-and-Play per frame (<a href="#ref-pnp">[4]</a>).</li> 
+        <li>Fate-Zero (<a href="#ref-fatezero">[8]</a>)</li>
+        <li>Rerender-a-Video (<a href="#ref-rerender">[10]</a>)</li>
 </ul>
-    Our method manages to preserve the structure of the guidance image while fulfilling the target text. </p>
+    Our msthod manages to preserve the structure of the guidance image while fulfilling the target text. </p>
 
-  <table  width="1200" align="center">
-    <tbody>
+  <table  width="800" align="center">
         <!-- <th>A</th>
         <th>B</th>
         <th>C</th> -->
@@ -297,75 +307,120 @@
             <th style="font-size: 16px">Ours</th>
             <th style="font-size: 16px">Text-to-video (<a href="#ref-txt2vid">[1]</a>)</th>
             <th style="font-size: 16px">TAV (<a href="#ref-TAV">[2]</a>)</th>
-            <th style="font-size: 16px">Gen1 (<a href="#ref-gen1">[3]</a>)</th>
-            <th style="font-size: 16px">PnP per frame (<a href="#ref-pnp">[4]</a>)</th>
         </tr>
+
 
         <tr>
             <th><a href="assets/poodle/input_fps30.mp4"> <a href="assets/poodle/input_fps30.mp4"> <video  width="224" src="assets/poodle/input_fps30.mp4" autoplay loop controls muted/> </a> </a></th>
             <th><a href="assets/poodle/a dog with a rainbow texture/result_fps_30.mp4"> <a href="assets/poodle/a dog with a rainbow texture/result_fps_30.mp4"> <video  width="224" src="assets/poodle/a dog with a rainbow texture/result_fps_30.mp4" autoplay loop controls muted /> </a> </a></th>
             <th><a href="assets/poodle/a dog with a rainbow texture/txt2vid_fps30.mp4"> <a href="assets/poodle/a dog with a rainbow texture/txt2vid_fps30.mp4"> <video  width="224" src="assets/poodle/a dog with a rainbow texture/txt2vid_fps30.mp4" autoplay loop controls muted/> </a> </a></th>
             <th><a href="assets/poodle/a dog with a rainbow texture/tav_fps30.mp4"> <a href="assets/poodle/a dog with a rainbow texture/tav_fps30.mp4"> <video  width="224" src="assets/poodle/a dog with a rainbow texture/tav_fps30.mp4" autoplay loop controls muted/> </a> </a></th>
+          </tr>
+          <tr>
+            <th style="font-size: 16px">Gen1 (<a href="#ref-gen1">[3]</a>)</th>
+            <th style="font-size: 16px">PnP per frame (<a href="#ref-pnp">[4]</a>)</th>
+            <th style="font-size: 16px">Fate-Zero (<a href="#ref-fatezero">[8]</a>)</th>
+            <th style="font-size: 16px">Re-render a Video (<a href="#ref-rerender">[10]</a>)</th>
+        </tr>
+          <tr>
             <th><a href="assets/poodle/a dog with a rainbow texture/gen1_fps30.mp4"> <a href="assets/poodle/a dog with a rainbow texture/gen1_fps30.mp4"> <video  width="224" src="assets/poodle/a dog with a rainbow texture/gen1_fps30.mp4" autoplay loop controls muted/> </a> </a></th>
             <th><a href="assets/poodle/a dog with a rainbow texture/pnp_per_frame_baseline_fps_30.mp4"> <a href="assets/poodle/a dog with a rainbow texture/pnp_per_frame_baseline_fps_30.mp4"> <video  width="224" src="assets/poodle/a dog with a rainbow texture/pnp_per_frame_baseline_fps_30.mp4" autoplay loop controls muted/> </a> </a></th>
+            <th><a href="assets/poodle/a dog with a rainbow texture/fatezero_30_fps.mp4"> <a href="assets/poodle/a dog with a rainbow texture/fatezero_30_fps.mp4"> <video  width="224" src="assets/poodle/a dog with a rainbow texture/fatezero_30_fps.mp4" autoplay loop controls muted/> </a> </a></th>
+            <th><a href="assets/poodle/a dog with a rainbow texture/rerender_fps_30.mp4"> <a href="assets/poodle/a dog with a rainbow texture/rerender_fps_30.mp4"> <video  width="224" src="assets/poodle/a dog with a rainbow texture/rerender_fps_30.mp4" autoplay loop controls muted/> </a> </a></th>
         </tr>
-        
+      </table>
+        <hr>
+      
+        <table  width="800" align="center">
         <tr>
         <tr>
             <th style="font-family: Chalkduster">"an origami of a stork"</th>
             <th style="font-size: 16px">Ours</th>
             <th style="font-size: 16px">Text-to-video (<a href="#ref-txt2vid">[1]</a>)</th>
             <th style="font-size: 16px">TAV (<a href="#ref-TAV">[2]</a>)</th>
-            <th style="font-size: 16px">Gen1 (<a href="#ref-gen1">[3]</a>)</th>
-            <th style="font-size: 16px">PnP per frame (<a href="#ref-pnp">[4]</a>)</th>
-        </tr>
+          </tr>
 
+       
         <tr>
             <th><a href="assets/poodle/input_fps30.mp4"> <a href="assets/stork/input_fps30.mp4"> <video  width="224" src="assets/stork/input_fps30.mp4" autoplay loop controls muted/> </a> </a></th>
             <th><a href="assets/stork/an origami of a stork/result_fps_30.mp4"> <a href="assets/stork/an origami of a stork/result_fps_30.mp4"> <video  width="224" src="assets/stork/an origami of a stork/result_fps_30.mp4" autoplay loop controls muted /> </a> </a></th>
             <th><a href="assets/stork/an origami of a stork/txt2vid_fps30.mp4"> <a href="assets/stork/an origami of a stork/txt2vid_fps30.mp4"> <video  width="224" src="assets/stork/an origami of a stork/txt2vid_fps30.mp4" autoplay loop controls muted/> </a> </a></th>
             <th><a href="assets/stork/an origami of a stork/tav_fps30.mp4"> <a href="assets/stork/an origami of a stork/tav_fps30.mp4"> <video  width="224" src="assets/stork/an origami of a stork/tav_fps30.mp4" autoplay loop controls muted/> </a> </a></th>
+          </tr>
+          
+          <tr>
+            <th style="font-size: 16px">Gen1 (<a href="#ref-gen1">[3]</a>)</th>
+            <th style="font-size: 16px">PnP per frame (<a href="#ref-pnp">[4]</a>)</th>
+            <th style="font-size: 16px">Fate-Zero (<a href="#ref-fatezero">[8]</a>)</th>
+            <th style="font-size: 16px">Re-render a Video (<a href="#ref-rerender">[10]</a>)</th>
+        </tr>
+          <tr>
             <th><a href="assets/stork/an origami of a stork/gen1_fps30.mp4"> <a href="assets/stork/an origami of a stork/gen1_fps30.mp4"> <video  width="224" src="assets/stork/an origami of a stork/gen1_fps30.mp4" autoplay loop controls muted/> </a> </a></th>
             <th><a href="assets/stork/an origami of a stork/pnp_per_frame_baseline_fps_30.mp4"> <a href="assets/stork/an origami of a stork/pnp_per_frame_baseline_fps_30.mp4"> <video  width="224" src="assets/stork/an origami of a stork/pnp_per_frame_baseline_fps_30.mp4" autoplay loop controls muted/> </a> </a></th>
-        </tr>
-
+            <th><a href="assets/stork/an origami of a stork/fatezero_30_fps.mp4"> <a href="assets/stork/an origami of a stork/fatezero_30_fps.mp4"> <video  width="224" src="assets/stork/an origami of a stork/fatezero_30_fps.mp4" autoplay loop controls muted/> </a> </a></th>
+            <th><a href="assets/stork/an origami of a stork/rerender_fps_30.mp4"> <a href="assets/stork/an origami of a stork/rerender_fps_30.mp4"> <video  width="224" src="assets/stork/an origami of a stork/rerender_fps_30.mp4" autoplay loop controls muted/> </a> </a></th>
+          </tr>
+        </table>
+          <hr>
+        
+          <table  width="800" align="center">
         <tr>
           <th style="font-family: Chalkduster">"a metal sculpture"</th>
           <th style="font-size: 16px">Ours</th>
           <th style="font-size: 16px">Text-to-video (<a href="#ref-txt2vid">[1]</a>)</th>
           <th style="font-size: 16px">TAV (<a href="#ref-TAV">[2]</a>)</th>
-          <th style="font-size: 16px">Gen1 (<a href="#ref-gen1">[3]</a>)</th>
-          <th style="font-size: 16px">PnP per frame (<a href="#ref-pnp">[4]</a>)</th>
-      </tr>
+        </tr>
+
 
       <tr>
           <th><a href="assets/bread/input_fps20.mp4"> <a href="assets/bread/input_fps20.mp4"> <video  width="224" src="assets/bread/input_fps20.mp4" autoplay loop controls muted/> </a> </a></th>
           <th><a href="assets/bread/a shiny metal scultpture/result_fps_20.mp4"> <a href="assets/bread/a shiny metal scultpture/result_fps_20.mp4"> <video  width="224" src="assets/bread/a shiny metal scultpture/result_fps_20.mp4" autoplay loop controls muted /> </a> </a></th>
           <th><a href="assets/bread/a shiny metal scultpture/txt2vid_fps20.mp4"> <a href="assets/bread/a shiny metal scultpture/txt2vid_fps20.mp4"> <video  width="224" src="assets/bread/a shiny metal scultpture/txt2vid_fps20.mp4" autoplay loop controls muted/> </a> </a></th>
           <th><a href="assets/bread/a shiny metal scultpture/tav_fps20.mp4"> <a href="assets/bread/a shiny metal scultpture/tav_fps20.mp4"> <video  width="224" src="assets/bread/a shiny metal scultpture/tav_fps20.mp4" autoplay loop controls muted/> </a> </a></th>
+        </tr>
+        <tr>
+          <th style="font-size: 16px">Gen1 (<a href="#ref-gen1">[3]</a>)</th>
+          <th style="font-size: 16px">PnP per frame (<a href="#ref-pnp">[4]</a>)</th>
+          <th style="font-size: 16px">Fate-Zero (<a href="#ref-fatezero">[8]</a>)</th>
+          <th style="font-size: 16px">Re-render a Video (<a href="#ref-rerender">[10]</a>)</th>
+      </tr>
+        <tr>
           <th><a href="assets/bread/a shiny metal scultpture/gen1_fps20.mp4"> <a href="assets/bread/a shiny metal scultpture/gen1_fps20.mp4"> <video  width="224" src="assets/bread/a shiny metal scultpture/gen1_fps20.mp4" autoplay loop controls muted/> </a> </a></th>
           <th><a href="assets/bread/a shiny metal scultpture/pnp_per_frame_baseline_fps_20.mp4"> <a href="assets/bread/a shiny metal scultpture/pnp_per_frame_baseline_fps_20.mp4"> <video  width="224" src="assets/bread/a shiny metal scultpture/pnp_per_frame_baseline_fps_20.mp4" autoplay loop controls muted/> </a> </a></th>
-      </tr>
-      <!-- <tr>
-        <th style="font-family: Chalkduster">"an origmai of an eagle, washi patterns"</th>
-        <th style="font-size: 16px">Ours</th>
-        <th style="font-size: 16px">Text-to-video (<a href="#ref-txt2vid">[1]</a>)</th>
-        <th style="font-size: 16px">TAV (<a href="#ref-TAV">[2]</a>)</th>
-        <th style="font-size: 16px">Gen1 (<a href="#ref-gen1">[3]</a>)</th>
-        <th style="font-size: 16px">PnP per frame (<a href="#ref-pnp">[4]</a>)</th>
-    </tr>
+          <th><a href="assets/bread/a shiny metal scultpture/fatezero_20_fps.mp4"> <a href="assets/bread/a shiny metal scultpture/fatezero_20_fps.mp4"> <video  width="224" src="assets/bread/a shiny metal scultpture/fatezero_20_fps.mp4" autoplay loop controls muted/> </a> </a></th>
+          <th><a href="assets/bread/a shiny metal scultpture/rerender_fps_20.mp4"> <a href="assets/bread/a shiny metal scultpture/rerender_fps_20.mp4"> <video  width="224" src="assets/bread/a shiny metal scultpture/rerender_fps_20.mp4" autoplay loop controls muted/> </a> </a></th>
+        </tr>
+      </table>
+        <hr>
+        <table  width="800" align="center">
+        <tr>
+          <th style="font-family: Chalkduster">"a fluffy wolf doll"</th>
+          <th style="font-size: 16px">Ours</th>
+          <th style="font-size: 16px">Text-to-video (<a href="#ref-txt2vid">[1]</a>)</th>
+          <th style="font-size: 16px">TAV (<a href="#ref-TAV">[2]</a>)</th>
+        </tr>
 
-    <tr>
-        <th><a href="assets/eagle_face/input_fps30.mp4"> <a href="assets/eagle_face/input_fps30.mp4"> <video  width="224" src="assets/eagle_face/input_fps30.mp4" autoplay loop controls muted/> </a> </a></th>
-        <th><a href="assets/eagle_face/an origami of an eagle, paper art, colorful japanses washi patterns/result_fps_30.mp4"> <a href="assets/eagle_face/an origami of an eagle, paper art, colorful japanses washi patterns/result_fps_30.mp4"> <video  width="224" src="assets/eagle_face/an origami of an eagle, paper art, colorful japanses washi patterns/result_fps_30.mp4" autoplay loop controls muted /> </a> </a></th>
-        <th><a href="assets/eagle_face/an origami of an eagle, paper art, colorful japanses washi patterns/txt2vid_fps30.mp4"> <a href="assets/eagle_face/an origami of an eagle, paper art, colorful japanses washi patterns/txt2vid_fps30.mp4"> <video  width="224" src="assets/eagle_face/an origami of an eagle, paper art, colorful japanses washi patterns/txt2vid_fps30.mp4" autoplay loop controls muted/> </a> </a></th>
-        <th><a href="assets/eagle_face/an origami of an eagle, paper art, colorful japanses washi patterns/tav_fps30.mp4"> <a href="assets/eagle_face/an origami of an eagle, paper art, colorful japanses washi patterns/tav_fps30.mp4"> <video  width="224" src="assets/eagle_face/an origami of an eagle, paper art, colorful japanses washi patterns/tav_fps30.mp4" autoplay loop controls muted/> </a> </a></th>
-        <th><a href="assets/eagle_face/an origami of an eagle, paper art, colorful japanses washi patterns/gen1_fps30.mp4"> <a href="assets/eagle_face/an origami of an eagle, paper art, colorful japanses washi patterns/gen1_fps30.mp4"> <video  width="224" src="assets/eagle_face/an origami of an eagle, paper art, colorful japanses washi patterns/gen1_fps30.mp4" autoplay loop controls muted/> </a> </a></th>
-        <th><a href="assets/eagle_face/an origami of an eagle, paper art, colorful japanses washi patterns/pnp_per_frame_baseline_fps_30.mp4"> <a href="assets/eagle_face/an origami of an eagle, paper art, colorful japanses washi patterns/pnp_per_frame_baseline_fps_30.mp4"> <video  width="224" src="assets/eagle_face/an origami of an eagle, paper art, colorful japanses washi patterns/pnp_per_frame_baseline_fps_30.mp4" autoplay loop controls muted/> </a> </a></th>
-    </tr> -->
+
+      <tr>
+          <th><a href="assets/wolf-part/input_fps20.mp4"> <a href="assets/wolf-part/input_fps20.mp4"> <video  width="224" src="assets/wolf-part/input_fps20.mp4" autoplay loop controls muted/> </a> </a></th>
+          <th><a href="assets/wolf-part/a photo of a fluffy wolf doll/result_fps_20.mp4"> <a href="assets/wolf-part/a photo of a fluffy wolf doll/result_fps_20.mp4"> <video  width="224" src="assets/wolf-part/a photo of a fluffy wolf doll/result_fps_20.mp4" autoplay loop controls muted /> </a> </a></th>
+          <th><a href="assets/wolf-part/a photo of a fluffy wolf doll/txt2vid_fps20.mp4"> <a href="assets/wolf-part/a photo of a fluffy wolf doll/txt2vid_fps20.mp4"> <video  width="224" src="assets/wolf-part/a photo of a fluffy wolf doll/txt2vid_fps20.mp4" autoplay loop controls muted/> </a> </a></th>
+          <th><a href="assets/wolf-part/a photo of a fluffy wolf doll/tav_fps20.mp4"> <a href="assets/wolf-part/a photo of a fluffy wolf doll/tav_fps20.mp4"> <video  width="224" src="assets/wolf-part/a photo of a fluffy wolf doll/tav_fps20.mp4" autoplay loop controls muted/> </a> </a></th>
+        </tr>
+        <tr>
+          <th style="font-size: 16px">Gen1 (<a href="#ref-gen1">[3]</a>)</th>
+          <th style="font-size: 16px">PnP per frame (<a href="#ref-pnp">[4]</a>)</th>
+          <th style="font-size: 16px">Fate-Zero (<a href="#ref-fatezero">[8]</a>)</th>
+          <th style="font-size: 16px">Re-render a Video (<a href="#ref-rerender">[10]</a>)</th>
+      </tr>
+        <tr>
+          <th><a href="assets/wolf-part/a photo of a fluffy wolf doll/gen1_fps20.mp4"> <a href="assets/wolf-part/a photo of a fluffy wolf doll/gen1_fps20.mp4"> <video  width="224" src="assets/wolf-part/a photo of a fluffy wolf doll/gen1_fps20.mp4" autoplay loop controls muted/> </a> </a></th>
+          <th><a href="assets/wolf-part/a photo of a fluffy wolf doll/pnp_per_frame_baseline_fps_20.mp4"> <a href="assets/wolf-part/a photo of a fluffy wolf doll/pnp_per_frame_baseline_fps_20.mp4"> <video  width="224" src="assets/wolf-part/a photo of a fluffy wolf doll/pnp_per_frame_baseline_fps_20.mp4" autoplay loop controls muted/> </a> </a></th>
+          <th><a href="assets/wolf-part/a photo of a fluffy wolf doll/fatezero_20_fps.mp4"> <a href="assets/wolf-part/a photo of a fluffy wolf doll/fatezero_20_fps.mp4"> <video  width="224" src="assets/wolf-part/a photo of a fluffy wolf doll/fatezero_20_fps.mp4" autoplay loop controls muted/> </a> </a></th>
+          <th><a href="assets/wolf-part/a photo of a fluffy wolf doll/rerender_fps_20.mp4"> <a href="assets/wolf-part/a photo of a fluffy wolf doll/rerender_fps_20.mp4"> <video  width="224" src="assets/wolf-part/a photo of a fluffy wolf doll/rerender_fps_20.mp4" autoplay loop controls muted/> </a> </a></th>
+        </tr>
         <tr> <td><br /></td> </tr>
 
-    </tbody>
 </table>
 <!------------------ END SECTION ------------------>
 
@@ -391,12 +446,17 @@
 
         </tr>
         <tr>
-            <th><a href="assets/Qual/input_fps20.mp4"> <a href="assets/Qual/input_fps20.mp4"> <video  width="300" src="assets/Qual/input_fps20.mp4" autoplay loop controls muted/> </a> </a></th>
-            <th><a href="assets/Qual/result_fps20.mp4"> <a href="assets/Qual/result_fps20.mp4"> <video  width="300" src="assets/Qual/result_fps20.mp4" autoplay loop controls muted/> </a> </a></th>
-            <th><a href="assets/Qual/txt2live.mp4"> <a href="assets/Qual/txt2live.mp4"> <video  width="300" src="assets/Qual/txt2live.mp4" autoplay loop controls muted/> </a> </a></th>
-            <th><a href="assets/Qual/ebsynth.mp4"> <a href="assets/Qual/ebsynth.mp4"> <video  width="300" src="assets/Qual/ebsynth.mp4" autoplay loop controls muted/> </a> </a></th>
+            <th><a href="assets/Qual/car-turn/input_fps20.mp4"> <a href="assets/Qual/car-turn/input_fps20.mp4"> <video  width="300" src="assets/Qual/car-turn/input_fps20.mp4" autoplay loop controls muted/> </a> </a></th>
+            <th><a href="assets/Qual/car-turn/result_fps20.mp4"> <a href="assets/Qual/car-turn/result_fps20.mp4"> <video  width="300" src="assets/Qual/car-turn/result_fps20.mp4" autoplay loop controls muted/> </a> </a></th>
+            <th><a href="assets/Qual/car-turn/txt2live.mp4"> <a href="assets/Qual/car-turn/txt2live.mp4"> <video  width="300" src="assets/Qual/car-turn/txt2live.mp4" autoplay loop controls muted/> </a> </a></th>
+            <th><a href="assets/Qual/car-turn/ebsynth.mp4"> <a href="assets/Qual/car-turn/ebsynth.mp4"> <video  width="300" src="assets/Qual/car-turn/ebsynth.mp4" autoplay loop controls muted/> </a> </a></th>
         </tr>
-
+        <tr>
+          <th><a href="assets/Qual/blackswan/input_fps20.mp4"> <a href="assets/Qual/blackswan/input_fps20.mp4"> <video  width="300" src="assets/Qual/blackswan/input_fps20.mp4" autoplay loop controls muted/> </a> </a></th>
+          <th><a href="assets/Qual/blackswan/result_fps_20.mp4"> <a href="assets/Qual/blackswan/result_fps_20.mp4"> <video  width="300" src="assets/Qual/blackswan/result_fps_20.mp4" autoplay loop controls muted/> </a> </a></th>
+          <th><a href="assets/Qual/blackswan/txt2live.mp4"> <a href="assets/Qual/blackswan/txt2live.mp4"> <video  width="300" src="assets/Qual/blackswan/txt2live.mp4" autoplay loop controls muted/> </a> </a></th>
+          <th><a href="assets/Qual/blackswan/ebsynth.mp4"> <a href="assets/Qual/blackswan/ebsynth.mp4"> <video  width="300" src="assets/Qual/blackswan/ebsynth.mp4" autoplay loop controls muted/> </a> </a></th>
+      </tr>
         <tr> <td><br /></td> </tr>
 
     </tbody>
@@ -556,8 +616,23 @@
       tions. In International Conference on Learning Representa-
       tions, 2022.
     </p>
+  <p>
     <p>
-
+      <a name="ref-fatezero" id="ref-fatezero"></a>
+      [8] Chenyang Qi, Xiaodong Cun, Yong Zhang, Chenyang Lei, Xintao Wang, Ying Shan, and Qifeng Chen.
+      Fatezero: Fusing attentions for zero-shot text-based video editing. arXiv:2303.09535, 2023 .
+    </p>
+      <p>
+          <a name="ref-controlnet" id="ref-controlnet"></a>
+          [9] Lvmin Zhang and Maneesh Agrawala. Adding conditional control to text-to-image diffusion models, 2023.
+          
+        </p>
+        <p>
+          <a name="ref-rerender" id="ref-rerender"></a>
+          [10] Shuai Yang, Yifan Zhou, Ziwei Liu, and Chen Change Loy. Rerender a video: Zero-shot text-guided video-to-
+          video translation, 2023.
+          
+        </p>
 </div>
 
 </body></html>
